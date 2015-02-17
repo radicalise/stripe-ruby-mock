@@ -52,6 +52,7 @@ require 'stripe_mock/request_handlers/plans.rb'
 require 'stripe_mock/request_handlers/recipients.rb'
 require 'stripe_mock/request_handlers/subscriptions.rb'
 require 'stripe_mock/request_handlers/tokens.rb'
+require 'stripe_mock/request_handlers/transfers.rb'
 require 'stripe_mock/instance'
 
 require 'stripe_mock/test_strategies/base.rb'

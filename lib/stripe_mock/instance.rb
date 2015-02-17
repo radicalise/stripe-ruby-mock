@@ -29,10 +29,10 @@ module StripeMock
     include StripeMock::RequestHandlers::Plans
     include StripeMock::RequestHandlers::Recipients
     include StripeMock::RequestHandlers::Tokens
-
+    include StripeMock::RequestHandlers::Transfers
 
     attr_reader :bank_tokens, :charges, :coupons, :customers, :events,
-                :invoices, :invoice_items, :plans, :recipients, :subscriptions
+                :invoices, :invoice_items, :plans, :recipients, :subscriptions, :transfers
 
     attr_accessor :error_queue, :debug
 
@@ -48,12 +48,14 @@ module StripeMock
       @plans = {}
       @recipients = {}
       @subscriptions = {}
+      @transfers = {}
 
       @debug = false
       @error_queue = ErrorQueue.new
       @id_counter = 0
       @balance_transaction_counter = 0
-
+      @strict = true
+      
       # This is basically a cache for ParamValidators
       @base_strategy = TestStrategies::Base.new
     end
